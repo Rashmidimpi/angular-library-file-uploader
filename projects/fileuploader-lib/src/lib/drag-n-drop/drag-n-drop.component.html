@@ -1,0 +1,60 @@
+<p>drag-n-drop works!</p>
+<div class="upload-area">
+    <div class="drop-zone" libDragDropFileUpload (click)="fileField.click()" (fileDropped)="upload($event)">
+  
+  
+      <span class="drop-zone-icon">
+        <!-- <i class='icons8-file'></i> -->
+        <span class="file-icon" [ngClass]="className"></span>
+      </span>
+      <p class="drop-zone-paragraph">Drop your file here or Click to browse</p>
+  
+      <input #inputFile type="file" (change)="upload($event)" class="drop-zone-input" #fileField hidden multiple [accept]="acceptValue">
+    </div>
+  
+    <div class="userselection">
+      <div style="float:left">
+        <div class="select">
+          <select id="standard-select" (change)="changeType($event)">
+            <option disabled="disabled">File Type</option>
+            <option *ngFor="let type of filetypeDropdown" value="{{type.value}}">File Type : {{type.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div >
+        <div class="select">
+          <select id="standard-select" (change)="changeSize($event)">
+            <option disabled="disabled">File Size</option>
+            <option *ngFor="let type of filesizeDropdown" value="{{type.value}}">File Size : {{type.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div id="snackbar" [ngClass]="showSnack">{{snackMsg}}</div>
+    </div>
+  
+    <div class="uploaded-file">
+      <div class="filelist" *ngFor="let file of fileArr; let i = index">
+        <div class="fileimage">
+          <!-- <img src="assets/file-line.svg" alt="" srcset=""> -->
+          <!-- <span class="fileimage-span">png</span> -->
+        </div>
+        <div class="filedetails">
+          <span class="filedetails-filename">{{ file.item.name }}</span>
+          <!-- <span class="filedetails-ext">100%</span> -->
+        </div>
+        <div class="outer">
+          <span class="trash" (click)="removefile(i)">
+            <span></span>
+            <i></i>
+          </span>
+        </div>
+        <!-- <div class="fileclosebtn">
+            <button class="fileclosebtn-btn" (click)="removefile(i)">X</button>
+          </div> -->
+  
+      </div>
+    </div>
+  
+  
+  
+    <!-- <app-drag-drop></app-drag-drop> -->

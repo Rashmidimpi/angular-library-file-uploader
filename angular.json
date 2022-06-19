@@ -1,0 +1,42 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "fileuploader-lib": {
+      "projectType": "library",
+      "root": "projects/fileuploader-lib",
+      "sourceRoot": "projects/fileuploader-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/fileuploader-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/fileuploader-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/fileuploader-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fileuploader-lib/src/test.ts",
+            "tsConfig": "projects/fileuploader-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/fileuploader-lib/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "fileuploader-lib"
+}

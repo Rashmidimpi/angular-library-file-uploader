@@ -1,0 +1,17 @@
+{
+  "name": "fileuploader-lib",
+  "version": "1.0.1",
+  "description": "A Simple fileuploader",
+  "author": "Rashmi Yadav",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/Rashmidimpi/angular-library-file-uploader.git"
+  },"peerDependencies": {
+    "@angular/common": "^13.3.0",
+    "@angular/core": "^13.3.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {}
+}
